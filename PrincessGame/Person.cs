@@ -11,6 +11,7 @@ namespace PrincessGame
         public int HP { get; set; } = 10;
 
         Output output = new Output();
+
         public void ToMovePlayer(ref int x, ref int y)
         {
             while (!int.TryParse(Console.ReadLine(), out direction))

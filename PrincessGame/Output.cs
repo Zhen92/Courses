@@ -13,15 +13,18 @@ namespace PrincessGame
             Console.WriteLine("1 - влево, 3 - вправо, 5 - вверх, 2 - вниз. \nПосле каждого хода нужно нажать 'Enter'");
             Console.WriteLine("Нажми клавишу '0' + 'Enter', чтобы начать");
         }
+
         public void LooseMessage()
         {
             Console.WriteLine("Ты проиграл!\nХочешь попробовать еще раз? \n1)Да \n2)Нет");
         }
+
         public void WinMessage()
         {
             Console.WriteLine("Ты спас принцессу! ");
             Console.WriteLine("Хочешь попробовать еще раз? \n1)Да \n2)Нет");
         }
+
         public void ErrorMessage()
         {
             Console.WriteLine("Это не число, введи значение КОРРЕКТНО");

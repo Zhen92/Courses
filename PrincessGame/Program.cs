@@ -6,8 +6,8 @@ namespace PrincessGame
     {
         static void Main(string[] args)
         {
-            GamePlay gamePlay = new GamePlay();
-            gamePlay.CreateLogic();
+            Game game = new Game();
+            game.StartGame();
         }
     }
 }

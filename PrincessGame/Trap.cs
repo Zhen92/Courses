@@ -11,9 +11,14 @@ namespace PrincessGame
 
         readonly Person person = new Person();
         static readonly Random random = new Random();
+
+        private const int trapFieldOx = 11;
+        private const int trapFieldOy = 11;
+
         public void MiningTheField()
         {
-            Traps = new string[11, 11];
+            Traps = new string[trapFieldOx, trapFieldOy];
+
             int numberOfTraps = 10;
             int minDamageOfTrap = 1;
             int maxDamageOfTrap = 10;
