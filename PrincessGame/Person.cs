@@ -6,11 +6,12 @@ namespace PrincessGame
 {
     public class Person
     {
-        private int direction;
         public string Player { get; set; } = " *";
         public int HP { get; set; } = 10;
 
         Output output = new Output();
+
+        private int direction;
 
         public void ToMovePlayer(ref int x, ref int y)
         {
