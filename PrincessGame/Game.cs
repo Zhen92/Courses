@@ -4,11 +4,11 @@ namespace PrincessGame
 {
     public class Game
     {
-        private string[,] Field { get; set; }
-        private int Rows { get; set; }
-        private int Columns { get; set; }
+        public string[,] Field { get; set; }
+        public int Rows { get; set; }
+        public int Columns { get; set; }
 
-        private const int buttonForLooseOrWin = 1;
+        private const int buttonForLoseOrWin = 1;
         private const string border = "| |";
         private const string princessSymbol = "P";
         private const int princessPositionOx = 10;
@@ -19,15 +19,15 @@ namespace PrincessGame
 
         Output output = new Output();
 
-        public void LooseGame(ref bool firstСondition, ref bool secondСondition, ref int numericСondition)
+        public void LoseCondition(ref bool firstСondition, ref bool secondСondition, ref int numericСondition)
         {
             Console.Clear();
-            output.LooseMessage();
+            output.ShowLoseMessage();
             while (!int.TryParse(Console.ReadLine(), out numericСondition))
             {
-                output.ErrorMessage();
+                output.ShowErrorMessage();
             }
-            if (numericСondition == buttonForLooseOrWin)
+            if (numericСondition == buttonForLoseOrWin)
             {
                 secondСondition = false;
                 firstСondition = true;
@@ -39,15 +39,15 @@ namespace PrincessGame
             }
         }
 
-        public void WinGame(ref bool firstСondition, ref bool secondСondition, ref int numericСondition)
+        public void WinCondition(ref bool firstСondition, ref bool secondСondition, ref int numericСondition)
         {
             Console.Clear();
-            output.WinMessage();
+            output.ShowWinMessage();
             while (!int.TryParse(Console.ReadLine(), out numericСondition))
             {
-                output.ErrorMessage();
+                output.ShowErrorMessage();
             }
-            if (numericСondition == buttonForLooseOrWin)
+            if (numericСondition == buttonForLoseOrWin)
             {
                 secondСondition = false;
                 firstСondition = true;
@@ -78,7 +78,7 @@ namespace PrincessGame
             x = 1;
             y = 1;
             HP = 10;
-            if (numericСondition == buttonForLooseOrWin)
+            if (numericСondition == buttonForLoseOrWin)
             {
                 secondСondition = true;
                 firstСondition = true;
@@ -106,7 +106,7 @@ namespace PrincessGame
 
             while (firstСondition)
             {
-                output.GreetingPlayer();
+                output.GreetPlayer();
                 game.CreateField();
                 trap.MiningTheField();
 
@@ -134,7 +134,7 @@ namespace PrincessGame
                     }
                     if (game.Field[y, x] == game.Field[princessPositionOx, princessPositionOy])
                     {
-                        game.WinGame(ref firstСondition, ref secondСondition, ref numericСondition);
+                        game.WinCondition(ref firstСondition, ref secondСondition, ref numericСondition);
                     }
                     else if (person.Player == trap.Traps[y, x])
                     {
@@ -142,7 +142,7 @@ namespace PrincessGame
                         HP -= trap.Damage;
                         if (HP <= 0)
                         {
-                            game.LooseGame(ref firstСondition, ref secondСondition, ref numericСondition);
+                            game.LoseCondition(ref firstСondition, ref secondСondition, ref numericСondition);
                         }
                     }
                     if (game.Field[y, x] != trapSymbol)

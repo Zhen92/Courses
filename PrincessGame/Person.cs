@@ -17,7 +17,7 @@ namespace PrincessGame
         {
             while (!int.TryParse(Console.ReadLine(), out direction))
             {
-                output.ErrorMessage();
+                output.ShowErrorMessage();
             }
             switch (direction)
             {

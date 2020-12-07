@@ -6,7 +6,7 @@ namespace PrincessGame
 {
     public class Output
     {
-        public void GreetingPlayer()
+        public void GreetPlayer()
         {
             Console.WriteLine("\t\t\tThe Princess game");
             Console.WriteLine("Управление(удобнее играть на намлоке, ты - звездочка '*', добраться тебе нужно до принцессы 'P'):");
@@ -14,18 +14,18 @@ namespace PrincessGame
             Console.WriteLine("Нажми клавишу '0' + 'Enter', чтобы начать");
         }
 
-        public void LooseMessage()
+        public void ShowLoseMessage()
         {
             Console.WriteLine("Ты проиграл!\nХочешь попробовать еще раз? \n1)Да \n2)Нет");
         }
 
-        public void WinMessage()
+        public void ShowWinMessage()
         {
             Console.WriteLine("Ты спас принцессу! ");
             Console.WriteLine("Хочешь попробовать еще раз? \n1)Да \n2)Нет");
         }
 
-        public void ErrorMessage()
+        public void ShowErrorMessage()
         {
             Console.WriteLine("Это не число, введи значение КОРРЕКТНО");
         }
