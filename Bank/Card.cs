@@ -100,7 +100,7 @@ namespace Bank
                 {
                     if (isCredit)
                     {
-                        Console.WriteLine("У тебя тут кредит! НИЗЯ!!!");
+                        output.HaveActiveCredit();
                     }
                     else
                     {
@@ -119,7 +119,7 @@ namespace Bank
                 {
                     if (accounts[debitCards[cardNumber - 1]].Balance < getBalance)
                     {
-                        Console.WriteLine("У тебя недостаточно денег для этой транзакции ");
+                        output.HaveNoMoney();
                     }
                     else
                     {
@@ -138,7 +138,7 @@ namespace Bank
                 output.ChooseNumberForDebitCard();
                 while (!int.TryParse(Console.ReadLine(), out cardNumber))
                 {
-                    Console.WriteLine("Введите значение корректно");
+                    output.ShowErrorMessage();
                 }
                 if (cardNumber < 1 || cardNumber > accounts.Length)
                 {
@@ -193,7 +193,7 @@ namespace Bank
                 {
                     if (accounts[debitCards[cardNumber - 1]].Balance < transaction)
                     {
-                        Console.WriteLine("У тебя недостаточно денег :(");
+                        output.HaveNoMoney();
                     }
                     accounts[debitCards[cardNumber - 1]].Balance -= transaction;
                     accounts[numberOftransAccount - 1].Balance += transaction;
@@ -210,7 +210,7 @@ namespace Bank
                 {
                     if (isCredit)
                     {
-                        Console.WriteLine("У тебя есть неоплаченный кредит.");
+                        output.HaveActiveCredit();
                     }
                     else
                     {
@@ -250,7 +250,7 @@ namespace Bank
                 {
                     if (accounts[cardID - 1].Balance < transaction)
                     {
-                        Console.WriteLine("У тебя недостаточно денег :(");
+                        output.HaveNoMoney();
                     }
                     else
                     {
@@ -269,7 +269,7 @@ namespace Bank
                 {
                     if (isCredit)
                     {
-                        Console.WriteLine("У тебя есть неоплаченный кредит.");
+                        output.HaveActiveCredit();
                     }
                     else
                     {

@@ -93,5 +93,20 @@ namespace Bank
         {
             Console.WriteLine("Транзакция проведена успешно!");
         }
+
+        public void HaveNoMoney()
+        {
+            Console.WriteLine("У тебя недостаточно денег для этой транзакции ");
+        }
+
+        public void HaveActiveCredit()
+        {
+            Console.WriteLine("У тебя есть неоплаченный кредит.");
+        }
+
+        public void ChooseAccount()
+        {
+            Console.WriteLine("Выбери счет: ");
+        }
     }
 }

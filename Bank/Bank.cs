@@ -144,7 +144,7 @@ namespace Bank
 
                         if (mainCondition == 1)
                         {
-                            Console.WriteLine("Выбери счет: ");
+                            output.ChooseAccount();
                             while (!int.TryParse(Console.ReadLine(), out transactionAccount))
                             {
                                 output.ShowErrorMessage();
