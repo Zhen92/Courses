@@ -8,6 +8,7 @@ namespace Bank
     {
         Output output = new Output();
         Card card = new Card();
+        Account accounts = new Account();
 
         public void StartBankConversation()
         {
@@ -17,7 +18,7 @@ namespace Bank
             int endCondition = 0;
 
             output.GreetUser();
-            while (card.IsConnect != true)
+            while (accounts.IsConnect != true)
             {
                 output.ChooseNumberOfAccounts();
                 while (!int.TryParse(Console.ReadLine(), out mainCondition))
@@ -40,7 +41,7 @@ namespace Bank
                 }
                 card.ConnectСreditCard(mainCondition);
 
-                if (card.IsConnect == true)
+                if (card.Connect == true)
                 {
                     output.ShowGreatErrorMessage();
                 }
@@ -120,14 +121,14 @@ namespace Bank
 
                         if (mainCondition == 1)
                         {
-                            card.ToGetBalance(getmoney, secondCondition, firstCondition);
+                            card.GetBalance(getmoney, secondCondition, firstCondition);
                         }
                         else
                         {
-                            card.ToGetBalance(getmoney, secondCondition, firstCondition);
+                            card.GetBalance(getmoney, secondCondition, firstCondition);
                         }
                         ChooseOperation(ref endCondition);
-                        break;                    
+                        break;
                     case 4:
                         ChooseCard(ref firstCondition);
                         Console.Clear();
@@ -179,12 +180,12 @@ namespace Bank
                             do
                             {
                                 accountNumber = Console.ReadLine();
-                                char[] arrScoreNumChar = accountNumber.ToCharArray();
-                                arrayOfAccountNumber = new int[arrScoreNumChar.Length];
+                                char[] arrayOfAccountNumberChar = accountNumber.ToCharArray();
+                                arrayOfAccountNumber = new int[arrayOfAccountNumberChar.Length];
 
                                 for (int i = 0; i < arrayOfAccountNumber.Length; i++)
                                 {
-                                    arrayOfAccountNumber[i] = int.Parse(arrScoreNumChar[i].ToString());
+                                    arrayOfAccountNumber[i] = int.Parse(arrayOfAccountNumberChar[i].ToString());
                                 }
 
                                 if (arrayOfAccountNumber.Length < 20 || arrayOfAccountNumber.Length > 20)
@@ -193,6 +194,7 @@ namespace Bank
                                 }
                             }
                             while (arrayOfAccountNumber.Length < 20 || arrayOfAccountNumber.Length > 20);
+
                             Console.Clear();
 
                             if (mainCondition == 1)

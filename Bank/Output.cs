@@ -8,7 +8,8 @@ namespace Bank
     {
         public void GreetUser()
         {
-            Console.WriteLine("\t\t\t~~~~~~~~~~~~~~~~~~Банк~~~~~~~~~~~~~~~~~~");
+            const string GreetUser = "~~~~~~~~~~~~~~~~~~Банк~~~~~~~~~~~~~~~~~~";
+            Console.WriteLine("\t\t\t" + GreetUser);
         }
 
         public void ShowErrorMessage()
