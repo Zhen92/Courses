@@ -10,6 +10,5 @@ namespace Bank
         public bool IsConnect { get; set; }
         public int[] DebitCards { get; set; }
         public int[] CreditCards { get; set; }
-
     }
 }
