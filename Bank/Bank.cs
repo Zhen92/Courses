@@ -8,7 +8,7 @@ namespace Bank
     {
         Output output = new Output();
         Card card = new Card();
-        Account accounts = new Account();
+        DataBase accounts = new DataBase();
 
         public void StartBankConversation()
         {

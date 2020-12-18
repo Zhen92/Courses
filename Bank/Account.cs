@@ -9,7 +9,6 @@ namespace Bank
         Output output = new Output();
 
         public double Balance { get; set; }
-        public bool IsConnect { get; set; }
 
         private protected int cardNumber;
 
