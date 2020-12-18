@@ -4,11 +4,10 @@ using System.Text;
 
 namespace Bank
 {
-    public class Account
+    public class Account : DataBase
     {
         Output output = new Output();
 
-        public Account[] Accounts { get; set; }
         public double Balance { get; set; }
         public bool IsConnect { get; set; }
 
@@ -22,9 +21,6 @@ namespace Bank
                 Accounts[i] = new Account();
             }
         }
-
-        public int[] DebitCards { get; set; }
-        public int[] CreditCards { get; set; }
 
         public void TransitMoney(double transaction, int cardNumber, int condition, int numberOftransAccount)
         {
