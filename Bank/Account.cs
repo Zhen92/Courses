@@ -6,16 +6,16 @@ namespace Bank
 {
     public class Account : DataBase
     {
-        Output output = new Output();
+        readonly Output output = new Output();
 
         public double Balance { get; set; }
 
         private protected int cardNumber;
-
-        public void CreateAccount(int numberOfAccount)
+        
+        public void CreateAccount(int accountNumber)
         {
-            Accounts = new Account[numberOfAccount];
-            for (int i = 0; i < numberOfAccount; i++)
+            Accounts = new Account[accountNumber];
+            for (int i = 0; i < accountNumber; i++)
             {
                 Accounts[i] = new Account();
             }

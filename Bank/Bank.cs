@@ -6,40 +6,47 @@ namespace Bank
 {
     public class Bank
     {
-        Output output = new Output();
-        Card card = new Card();
-        DataBase accounts = new DataBase();
+        readonly Output output = new Output();
+        readonly Card card = new Card();
+        readonly DataBase accounts = new DataBase();
+
+        private int basicCondition;
+        private int firstCondition;
+        private int secondCondition;
+        private int endCondition;
+
+        public Bank()
+        {
+            firstCondition = 0;
+            secondCondition = 0;
+            endCondition = 0;
+        }
 
         public void StartBankConversation()
         {
-            int mainCondition;
-            int firstCondition = 0;
-            int secondCondition = 0;
-            int endCondition = 0;
-
             output.GreetUser();
             while (accounts.IsConnect != true)
             {
                 output.ChooseNumberOfAccounts();
-                while (!int.TryParse(Console.ReadLine(), out mainCondition))
+                while (!int.TryParse(Console.ReadLine(), out basicCondition))
                 {
                     output.ShowErrorMessage();
                 }
-                card.CreateAccount(mainCondition);
+                card.CreateAccount(basicCondition);
 
                 output.ChooseNumberOfDebitCards();
-                while (!int.TryParse(Console.ReadLine(), out mainCondition))
+                while (!int.TryParse(Console.ReadLine(), out basicCondition))
                 {
                     output.ShowErrorMessage();
                 }
-                card.ConnectDebitCard(mainCondition);
+                card.ConnectDebitCard(basicCondition);
 
                 output.ChooseNumberOfCreditCards();
-                while (!int.TryParse(Console.ReadLine(), out mainCondition))
+                while (!int.TryParse(Console.ReadLine(), out basicCondition))
                 {
                     output.ShowErrorMessage();
                 }
-                card.ConnectСreditCard(mainCondition);
+                card.ConnectСreditCard(basicCondition);
 
                 if (card.Connect == true)
                 {
@@ -58,13 +65,13 @@ namespace Bank
                 Console.Clear();
 
                 output.ManageCards();
-                while (!int.TryParse(Console.ReadLine(), out mainCondition))
+                while (!int.TryParse(Console.ReadLine(), out basicCondition))
                 {
                     output.ShowErrorMessage();
                 }
                 Console.Clear();
 
-                switch (mainCondition)
+                switch (basicCondition)
                 {
                     case 1:
                         ChooseCard(ref firstCondition);
@@ -72,7 +79,7 @@ namespace Bank
 
                         ChooseNumber(ref secondCondition);
                         Console.Clear();
-                        if (mainCondition == 1)
+                        if (basicCondition == 1)
                         {
                             card.ShowBalance(secondCondition, firstCondition);
                         }
@@ -95,7 +102,7 @@ namespace Bank
                             output.ShowErrorMessage();
                         }
                         Console.Clear();
-                        if (mainCondition == 1)
+                        if (basicCondition == 1)
                         {
                             card.AddMoney(plus, secondCondition, firstCondition);
                         }
@@ -119,7 +126,7 @@ namespace Bank
                         }
                         Console.Clear();
 
-                        if (mainCondition == 1)
+                        if (basicCondition == 1)
                         {
                             card.GetBalance(getmoney, secondCondition, firstCondition);
                         }
@@ -143,14 +150,14 @@ namespace Bank
                         }
                         Console.Clear();
 
-                        if (mainCondition == 1)
+                        if (basicCondition == 1)
                         {
                             output.ChooseAccount();
                             while (!int.TryParse(Console.ReadLine(), out transactionAccount))
                             {
                                 output.ShowErrorMessage();
                             }
-                            if (mainCondition == 1)
+                            if (basicCondition == 1)
                             {
                                 card.TransitMoney(transaction, secondCondition, transactionAccount, firstCondition);
                             }
@@ -197,7 +204,7 @@ namespace Bank
 
                             Console.Clear();
 
-                            if (mainCondition == 1)
+                            if (basicCondition == 1)
                             {
                                 card.TransitMoney(transaction, secondCondition, firstCondition);
                             }

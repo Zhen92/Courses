@@ -6,7 +6,7 @@ namespace Bank
 {
     public class Card : Account
     {
-        Output output = new Output();
+        readonly Output output = new Output();
 
         public bool Connect { get; set; }
 
