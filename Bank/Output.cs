@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Bank
 {
@@ -85,6 +83,7 @@ namespace Bank
         {
             Console.WriteLine("Напиши Отчество: ");
         }
+
         public void EnterTransitAccount()
         {
             Console.WriteLine("Введи счет получателя (максимум 20 символов): ");
